@@ -34,7 +34,7 @@ func CreateCampaign(c *fiber.Ctx) error {
 		Name:        name,
 		Description: description,
 	}
-
+	// Save the campaign to the database
 	if err := database.DB.Create(&campaign).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString("Error creating campaign")
 	}
