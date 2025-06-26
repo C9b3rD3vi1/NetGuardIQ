@@ -2,13 +2,18 @@ package main
 
 import (
 	"fmt"
-	"os"
+	//"os"
 	fiber "github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/template/html"
-
-	"github.com/c9b3rd3vi1/Golang/NetGuardIQ/database"
+	"github.com/gofiber/template/html/v2"
+	"github.com/c9b3rd3vi1/NetGuardIQ/handlers"
+	//"github.com/c9b3rd3vi1/NetGuardIQ/config"
+	//"github.com/c9b3rd3vi1/NetGuardIQ/utils"
+	//"github.com/c9b3rd3vi1/NetGuardIQ/models"
+	//"github.com/c9b3rd3vi1/NetGuardIQ/utils/email
 )
 
+
+// main function initializes the Fiber application and sets up routes, templates, and static files.
 func main() {
 
 	// set template engine
@@ -20,15 +25,19 @@ func main() {
 	})
 
 	// set database connection
-	database.ConnectDB()
+	//database.ConnectDB()
 
 	// set static files directory
 	app.Static("/", "./public")
 
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
+	app.Get("/", handlers.Dashboard)
+	app.Get("/login", handlers.Login)
+	app.Get("/campaigns/new", handlers.NewCampaignForm)
+	app.Post("/campaigns/new", handlers.CreateCampaign)
+	app.Get("/tracking/:id", handlers.TrackClick)
+	app.Get("/fake_login", handlers.FakeLogin)
+
 	app.Listen(":3000")
 	fmt.Println("Server is running on port 3000")
 }
