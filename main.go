@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	//"os"
 	fiber "github.com/gofiber/fiber/v2"
+
 	"github.com/gofiber/template/html/v2"
 	"github.com/c9b3rd3vi1/NetGuardIQ/handlers"
 	"github.com/c9b3rd3vi1/NetGuardIQ/database"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/config"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/utils"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/models"
-	//"github.com/c9b3rd3vi1/NetGuardIQ/utils/email
+
 )
 
 
@@ -24,6 +24,8 @@ func main() {
 	app := fiber.New(fiber.Config{
 		Views: engine,
 	})
+	// Enable Fiber's built-in logger
+	//app.Use(fiber.Logger())
 
 	// set database connection
 	database.ConnectDB()
@@ -35,7 +37,7 @@ func main() {
 	app.Get("/", handlers.Dashboard)
 	//app.Get("/login", handlers.Login)
 	app.Get("/campaigns/new", handlers.NewCampaignForm)
-	app.Post("/campaigns/new", handlers.CreateCampaign)
+	app.Get("/campaigns/new", handlers.CreateCampaign)
 	app.Get("/tracking/:id", handlers.TrackClick)
 	app.Get("/fake_login", handlers.FakeLogin)
 
