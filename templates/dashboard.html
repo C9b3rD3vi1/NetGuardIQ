@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h1>Welcome to the Dashboard</h1>
+
+    <a href="/campaigns/new">Create New Campaign</a>
+
+    <ul>
+        {{ range .Campaigns }}
+        <li><a href="/campaigns/{{ .ID }}">{{ .Name }}- {{len .Targets}} targets</a></li>
+        {{ end }}
+    </ul>
+       
+
+
+</body>
+
+</html>
