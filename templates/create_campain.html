@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Campaign - NetGuardIQ</title>
-  <link href="/public/css/output.css" rel="stylesheet" />
-</head>
-<body class="bg-base-200 min-h-screen flex items-center justify-center p-8">
-  <div class="card w-full max-w-md bg-base-100 shadow">
-    <form method="POST" class="card-body space-y-4">
-      <h2 class="card-title">New Campaign</h2>
-      <input name="name" class="input input-bordered w-full" placeholder="Campaign Name" required />
-      <div class="card-actions justify-end">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-</body>
-</html>
+{{ define "content" }}
+<div class="max-w-md mx-auto card bg-base-100 shadow">
+  <form method="POST" class="card-body space-y-4">
+    <h2 class="card-title">New Campaign</h2>
+    <input name="name" class="input input-bordered w-full" placeholder="Campaign Name" required />
+    <button type="submit" class="btn btn-primary w-full">Create Campaign</button>
+  </form>
+</div>
+{{ end }}

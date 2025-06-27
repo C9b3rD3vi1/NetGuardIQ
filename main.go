@@ -35,11 +35,11 @@ func main() {
 
 
 	app.Get("/", handlers.Dashboard)
-	//app.Get("/login", handlers.Login)
 	app.Get("/campaigns/new", handlers.NewCampaignForm)
 	app.Get("/campaigns/new", handlers.CreateCampaign)
 	app.Get("/tracking/:id", handlers.TrackClick)
 	app.Get("/fake_login", handlers.FakeLogin)
+	app.Get("/login", handlers.UserLoginHandler)
 
 	app.Listen(":3000")
 	fmt.Println("Server is running on port 3000")

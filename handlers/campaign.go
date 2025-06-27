@@ -13,16 +13,16 @@ func Dashboard(c *fiber.Ctx) error {
 	if err := database.DB.Preload("Target").Find(&campaigns).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching campaigns")
 	}
-	return c.Render("dashboard", fiber.Map{
-		//"Title":     "Dashboard",
+	return c.Render("base", fiber.Map{
+		"Title":     "Dashboard",
 		"Campaigns": campaigns,
 	})
 }
 
 // Create New Campaign Form
 func NewCampaignForm(c *fiber.Ctx) error {
-	return c.Render("create_campaign", fiber.Map{
-		//"Title": "New Campaign",
+	return c.Render("base", fiber.Map{
+		"Title": "New Campaign",
 	})
 }
 
