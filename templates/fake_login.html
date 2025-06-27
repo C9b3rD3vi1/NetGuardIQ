@@ -1,13 +1,19 @@
-<h2>Fake Login</h2>
-<form action="/fake_login" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-
-    <button type="submit">Login</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Login</title>
+  <link href="/public/css/output.css" rel="stylesheet" />
+</head>
+<body class="bg-base-200 min-h-screen flex items-center justify-center p-8">
+  <div class="card w-full max-w-sm bg-base-100 shadow">
+    <form class="card-body space-y-4">
+      <h2 class="card-title">Secure Login</h2>
+      <input type="email" class="input input-bordered w-full" placeholder="Email" required />
+      <input type="password" class="input input-bordered w-full" placeholder="Password" required />
+      <button class="btn btn-primary w-full">Sign In</button>
+    </form>
+  </div>
+</body>
+</html>

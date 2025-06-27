@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - NetGuardIQ</title>
+  <link href="/public/css/output.css" rel="stylesheet" />
 </head>
+<body class="bg-base-200 min-h-screen p-8">
+  <div class="container mx-auto max-w-4xl">
+    <header class="flex items-center justify-between mb-6">
+      <h1 class="text-3xl font-bold">NetGuardIQ Dashboard</h1>
+      <a href="/campaign/new" class="btn btn-primary">+ New Campaign</a>
+    </header>
 
-<body>
-    <h1>Welcome to the Dashboard</h1>
-
-    <a href="/campaigns/new">Create New Campaign</a>
-
-    <ul>
-        {{ range .Campaigns }}
-        <li><a href="/campaigns/{{ .ID }}">{{ .Name }}- {{len .Targets}} targets</a></li>
-        {{ end }}
-    </ul>
-       
-
-
+    <div class="grid grid-cols-1 gap-4">
+      {{range .Campaigns}}
+      <div class="card bg-base-100 shadow">
+        <div class="card-body">
+          <h2 class="card-title">{{.Name}}</h2>
+          <p>{{len .Targets}} target(s)</p>
+          <a href="#" class="btn btn-secondary btn-sm">View Details</a>
+        </div>
+      </div>
+      {{end}}
+      {{if not .Campaigns}}
+      <div class="alert alert-info">
+        No campaigns yet. Create one to get started.
+      </div>
+      {{end}}
+    </div>
+  </div>
 </body>
-
 </html>
