@@ -6,6 +6,7 @@ import (
 	fiber "github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
 	"github.com/c9b3rd3vi1/NetGuardIQ/handlers"
+	"github.com/c9b3rd3vi1/NetGuardIQ/database"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/config"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/utils"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/models"
@@ -25,14 +26,14 @@ func main() {
 	})
 
 	// set database connection
-	//database.ConnectDB()
+	database.ConnectDB()
 
 	// set static files directory
 	app.Static("/", "./public")
 
 
 	app.Get("/", handlers.Dashboard)
-	app.Get("/login", handlers.Login)
+	//app.Get("/login", handlers.Login)
 	app.Get("/campaigns/new", handlers.NewCampaignForm)
 	app.Post("/campaigns/new", handlers.CreateCampaign)
 	app.Get("/tracking/:id", handlers.TrackClick)
