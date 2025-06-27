@@ -13,6 +13,12 @@ func HomepageHandler(c *fiber.Ctx) error {
 	})
 }
 
+func PrinceHandler(c *fiber.Ctx) error {
+	return c.Render("princing", fiber.Map{
+		"Title": "Prince Handler",
+	})
+}
+
 
 
 // Create Campaign Dashboard

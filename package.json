@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
     "@tailwindcss/vite": "^4.1.11",
+    "daisyui": "^5.0.43",
     "rippleui": "^1.12.1"
   },
   "devDependencies": {

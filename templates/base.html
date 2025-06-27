@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="duration-300 ease-in-out">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,31 +8,42 @@
   <link href="/public/css/output.css" rel="stylesheet" />
 </head>
 <body class="bg-base-200 min-h-screen flex flex-col">
-<header class="bg-base-100 shadow-md border-b border-base-300">
-  <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-3 gap-2">
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 text-xl font-semibold text-primary">
-      NetGuardIQ
-    </a>
 
-    <!-- Navigation Links -->
-    <nav class="flex flex-wrap gap-2 items-center">
-      <a href="/" class="btn btn-ghost btn-sm transition duration-150 hover:scale-[1.03]">Home</a>
-      <a href="/dashboard" class="btn btn-ghost btn-sm transition duration-150 hover:scale-[1.03]">Dashboard</a>
+  <!-- Header -->
+  <header class="bg-base-100 shadow-md border-b border-base-300">
+    <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-3 gap-2">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 text-xl font-bold text-primary">
+        NetGuardIQ
+      </a>
 
-      <a href="/campaigns/new" class="btn btn-primary btn-sm">+ New Campaign</a>
-      <a href="/login" class="btn btn-ghost btn-sm">Login</a>
-      <a href="/register" class="btn btn-ghost btn-sm">Register</a>
-      <a href="/profile" class="btn btn-ghost btn-sm">Profile</a>
-      <a href="/logout" class="btn btn-ghost btn-sm">Logout</a>
-      <button onclick="toggleTheme()" class="btn btn-ghost btn-sm" title="Toggle dark mode">🌙</button>
-    </nav>
-  </div>
-</header>
+      <!-- Navigation -->
+      <nav class="flex flex-wrap gap-2 md:gap-4 items-center" role="navigation">
+        <a href="/" class="btn btn-ghost btn-sm transition duration-150 hover:scale-[1.03]">Home</a>
+        <a href="/dashboard" class="btn btn-ghost btn-sm transition duration-150 hover:scale-[1.03]">Dashboard</a>
+        <a class="btn btn-ghost">Features</a>
+        <a class="btn btn-ghost">Pricing</a>
+        <a class="btn btn-ghost">Contact</a>
+        <a href="/campaigns/new" class="btn btn-primary btn-sm">+ New Campaign</a>
+        <a href="/login" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/register" class="btn btn-ghost btn-sm">Register</a>
+        <a href="/profile" class="btn btn-ghost btn-sm">Profile</a>
+        <a href="/logout" class="btn btn-ghost btn-sm">Logout</a>
+        <button 
+          onclick="toggleTheme()" 
+          class="btn btn-ghost btn-sm"
+          title="Toggle Dark Mode"
+          aria-label="Toggle Dark Mode"
+        >
+          🌙
+        </button>
+      </nav>
+    </div>
+  </header>
 
-
+  <!-- Main Content -->
   <main class="flex-grow container mx-auto p-6">
-    {{ block "content" . }} 
+    {{ block "content" . }}
     {{ end }}
   </main>
 
@@ -40,12 +52,12 @@
     <p>&copy; 2025 NetGuardIQ. All rights reserved.</p>
   </footer>
 
+  <!-- Theme Toggle Script -->
   <script>
-function toggleTheme() {
-  const html = document.documentElement;
-  html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
-}
-</script>
-
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
+    }
+  </script>
 </body>
 </html>

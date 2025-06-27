@@ -1,12 +1,10 @@
-
-
-
 <h1 class="text-3xl font-bold mb-4">Campaigns</h1>
 
 {{ if .Campaigns }}
+<!-- Campaign Cards -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   {{ range .Campaigns }}
-  <div class="card bg-base-100 shadow hover:shadow-lg transition">
+  <div class="card bg-base-100 shadow hover:shadow-lg transition animate__animated animate__fadeInUp">
     <div class="card-body">
       <h2 class="card-title">{{ .Name }}</h2>
       {{ if .Targets }}
@@ -15,16 +13,67 @@
         <p>0 Target(s)</p>
       {{ end }}
       <div class="card-actions justify-end">
-        <a href="#" class="btn btn-secondary btn-sm">View Details</a>
+        <a href="/campaigns/{{ .ID }}" class="btn btn-secondary btn-sm">View Details</a>
       </div>
     </div>
   </div>
   {{ end }}
 </div>
+
 {{ else }}
+<!-- No Campaigns Alert -->
 <div class="alert alert-info mt-4">
   No campaigns yet. Create one to get started.
 </div>
 {{ end }}
 
+<!-- Analytics Section -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- Clicks Bar Chart -->
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title mb-4">Clicks per Campaign</h2>
+      <canvas id="campaignChart" class="w-full h-64"></canvas>
+    </div>
+  </div>
+  <!-- Training Completion Doughnut Chart -->
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title mb-4">Training Completion</h2>
+      <canvas id="trainingChart" class="w-full h-64"></canvas>
+    </div>
+  </div>
+</section>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Bar Chart for Campaign Clicks
+  const ctx1 = document.getElementById('campaignChart').getContext('2d');
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: ['Campaign 1', 'Campaign 2', 'Campaign 3'],
+      datasets: [{
+        label: 'Clicks',
+        data: [12, 19, 7],
+        backgroundColor: '#3b82f6'
+      }]
+    },
+    options: { responsive: true }
+  });
+
+  // Doughnut Chart for Training
+  const ctx2 = document.getElementById('trainingChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+      labels: ['Completed', 'Pending'],
+      datasets: [{
+        label: 'Users',
+        data: [60, 40],
+        backgroundColor: ['#10b981', '#f59e0b']
+      }]
+    },
+    options: { responsive: true }
+  });
+</script>
