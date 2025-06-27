@@ -6,6 +6,15 @@ import (
 	fiber "github.com/gofiber/fiber/v2"
 )
 
+// Homepage Handler
+func HomepageHandler(c *fiber.Ctx) error {
+	return c.Render("home", fiber.Map{
+		"Title": "NetGuardIQ",
+	})
+}
+
+
+
 // Create Campaign Dashboard
 
 func Dashboard(c *fiber.Ctx) error {
@@ -13,7 +22,7 @@ func Dashboard(c *fiber.Ctx) error {
 	if err := database.DB.Preload("Target").Find(&campaigns).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching campaigns")
 	}
-	return c.Render("base", fiber.Map{
+	return c.Render("dashboard", fiber.Map{
 		"Title":     "Dashboard",
 		"Campaigns": campaigns,
 	})

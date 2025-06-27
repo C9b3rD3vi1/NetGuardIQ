@@ -8,7 +8,7 @@ import (
 )
 
 
-
+// User login Function
 func UserLoginHandler(c *fiber.Ctx) error {
 	// Render the login page
 	return c.Render("base", fiber.Map{

@@ -1,8 +1,21 @@
 {{ define "content" }}
-<div class="max-w-md mx-auto card bg-base-100 shadow">
+
+
+<div class="max-w-lg mx-auto card bg-base-100 shadow-lg border border-base-300">
   <form method="POST" class="card-body space-y-4">
-    <h2 class="card-title">New Campaign</h2>
-    <input name="name" class="input input-bordered w-full" placeholder="Campaign Name" required />
+    <h2 class="card-title">Create New Campaign</h2>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Campaign Name</span>
+      </label>
+      <input name="name" class="input input-bordered w-full" placeholder="e.g. Employee Awareness" required />
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Description</span>
+      </label>
+      <textarea name="description" class="textarea textarea-bordered w-full" rows="3" placeholder="Brief description..."></textarea>
+    </div>
     <button type="submit" class="btn btn-primary w-full">Create Campaign</button>
   </form>
 </div>

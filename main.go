@@ -24,19 +24,17 @@ func main() {
 	app := fiber.New(fiber.Config{
 		Views: engine,
 	})
-	// Enable Fiber's built-in logger
-	//app.Use(fiber.Logger())
 
 	// set database connection
 	database.ConnectDB()
 
 	// set static files directory
-	app.Static("/", "./public")
+	app.Static("/public", "./public")
 
-
-	app.Get("/", handlers.Dashboard)
+	app.Get("/", handlers.HomepageHandler)
+	app.Get("/dashboard", handlers.Dashboard)
 	app.Get("/campaigns/new", handlers.NewCampaignForm)
-	app.Get("/campaigns/new", handlers.CreateCampaign)
+	app.Post("/campaigns/new", handlers.CreateCampaign)
 	app.Get("/tracking/:id", handlers.TrackClick)
 	app.Get("/fake_login", handlers.FakeLogin)
 	app.Get("/login", handlers.UserLoginHandler)

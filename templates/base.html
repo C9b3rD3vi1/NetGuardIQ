@@ -7,27 +7,45 @@
   <link href="/public/css/output.css" rel="stylesheet" />
 </head>
 <body class="bg-base-200 min-h-screen flex flex-col">
-  <header class="navbar bg-base-100 shadow">
-    <div class="container mx-auto flex items-center justify-between">
-      <a href="/" class="text-xl font-bold">NetGuardIQ</a>
-      <nav class="flex gap-2">
-        <a href="/" class="btn btn-ghost">Dashboard</a>
-        <a href="/campaigns/new" class="btn btn-primary">+ New Campaign</a>
-        <a href="/login" class="btn btn-ghost">Login</a>
-        <a href="/register" class="btn btn-ghost">Register</a>
-        <a href="/profile" class="btn btn-ghost">Profile</a>
-        <a href="/logout" class="btn btn-ghost">Logout</a>
-      </nav>
-    </div>
-  </header>
+<header class="bg-base-100 shadow-md border-b border-base-300">
+  <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-3 gap-2">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 text-xl font-semibold text-primary">
+      NetGuardIQ
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="flex flex-wrap gap-2 items-center">
+      <a href="/" class="btn btn-ghost btn-sm transition duration-150 hover:scale-[1.03]">Home</a>
+      <a href="/dashboard" class="btn btn-ghost btn-sm transition duration-150 hover:scale-[1.03]">Dashboard</a>
+
+      <a href="/campaigns/new" class="btn btn-primary btn-sm">+ New Campaign</a>
+      <a href="/login" class="btn btn-ghost btn-sm">Login</a>
+      <a href="/register" class="btn btn-ghost btn-sm">Register</a>
+      <a href="/profile" class="btn btn-ghost btn-sm">Profile</a>
+      <a href="/logout" class="btn btn-ghost btn-sm">Logout</a>
+      <button onclick="toggleTheme()" class="btn btn-ghost btn-sm" title="Toggle dark mode">🌙</button>
+    </nav>
+  </div>
+</header>
+
 
   <main class="flex-grow container mx-auto p-6">
-    {{ template "content" . }}
+    {{ block "content" . }} 
+    {{ end }}
   </main>
 
   <!-- Footer -->
   <footer class="footer footer-center p-4 bg-base-100 text-base-content border-t">
     <p>&copy; 2025 NetGuardIQ. All rights reserved.</p>
   </footer>
+
+  <script>
+function toggleTheme() {
+  const html = document.documentElement;
+  html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
+}
+</script>
+
 </body>
 </html>
