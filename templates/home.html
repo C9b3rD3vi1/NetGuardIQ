@@ -10,19 +10,67 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
-  <style>
-    body {
-      background-color: #0f172a;
-      color: #e2e8f0;
-    }
-    .card, .navbar, footer {
-      background-color: rgba(30, 41, 59, 0.85);
-      backdrop-filter: blur(4px);
-    }
-    .transition-all {
-      transition: all 0.3s ease;
-    }
-  </style>
+<style>
+  body {
+    /*background-color: #0a0f1a;*/
+    background: radial-gradient(circle at center, #0f172a 0%, #000 100%);
+    color: #d1fae5;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .card, .navbar, footer, .collapse {
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+  }
+  h1, h2, h3 {
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+  }
+  .glitch {
+    position: relative;
+    color: #22c55e;
+  }
+  .glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+  .glitch::before {
+    animation: glitchTop 2s infinite linear alternate-reverse;
+    color: #10b981;
+    z-index: 1;
+  }
+  .glitch::after {
+    animation: glitchBottom 2s infinite linear alternate-reverse;
+    color: #065f46;
+    z-index: -1;
+  }
+  @keyframes glitchTop {
+    0% { clip: rect(0, 9999px, 0, 0); }
+    10% { clip: rect(0, 9999px, 5px, 0); transform: translate(-2px, -2px); }
+    20% { clip: rect(0, 9999px, 5px, 0); transform: translate(2px, 2px); }
+    100% { clip: rect(0, 9999px, 0, 0); }
+  }
+  @keyframes glitchBottom {
+    0% { clip: rect(0, 9999px, 0, 0); }
+    10% { clip: rect(5px, 9999px, 10px, 0); transform: translate(2px, 0); }
+    20% { clip: rect(5px, 9999px, 10px, 0); transform: translate(-2px, 0); }
+    100% { clip: rect(0, 9999px, 0, 0); }
+  }
+  .btn-hacker {
+    background-color: #065f46;
+    border: none;
+    color: #d1fae5;
+  }
+  .btn-hacker:hover {
+    background-color: #10b981;
+    transform: scale(1.05);
+  }
+</style>
+
 </head>
 <body class="text-slate-100">
 
@@ -42,13 +90,14 @@
   <!-- Hero -->
   <section class="py-20 bg-gradient-to-r from-blue-700 to-blue-500 text-white text-center animate__animated animate__fadeIn">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
-        Simulate. Educate. Protect.
-      </h1>
+     <h1 class="text-4xl md:text-5xl font-extrabold mb-4 glitch" data-text="Simulate. Educate. Protect.">
+  Simulate. Educate. Protect.
+</h1>
       <p class="text-lg md:text-xl mb-8 opacity-90">
         The all-in-one phishing simulation platform to train your team and secure your organization.
       </p>
-      <a class="btn btn-accent btn-lg transition-transform hover:scale-105">Start Your Free Trial</a>
+      <a class="btn btn-hacker btn-lg">Start Your Free Trial</a>
+
     </div>
   </section>
 
@@ -68,7 +117,10 @@
   <!-- Features -->
   <section class="py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 text-white">Platform Features</h2>
+      <h2 class="text-3xl font-bold text-center mb-12 glitch" data-text="Platform Features">
+  Platform Features
+</h2>
+      <p class="text-center mb-12 text-gray-300">Empower your team with our comprehensive phishing simulation and training platform.</p>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="card shadow hover:scale-105 transition-transform">
           <div class="card-body items-center text-center">
@@ -163,7 +215,7 @@
 
   <section class="py-16">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-black">Frequently Asked Questions</h2>
+    <h2 class="text-3xl font-bold text-center mb-12 text-white">Frequently Asked Questions</h2>
     <div class="max-w-2xl mx-auto space-y-4">
       <div class="collapse collapse-arrow bg-base-200">
         <input type="checkbox" />
@@ -202,16 +254,22 @@
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-4">Simple Pricing for Teams of All Sizes</h2>
       <p class="mb-8">Start free and scale as you grow. No hidden fees.</p>
-      <a href="/pricing" class="btn btn-accent btn-lg transition-transform hover:scale-105">View Pricing</a>
+      <a href="/pricing" class="btn btn-hacker btn-lg">View Pricing</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8">
+  <footer class="py-12">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
       <p class="opacity-60">&copy; 2025 NetGuardIQ. All rights reserved.</p>
 
       <!-- Social Media Links -->
+      <div class="space-x-4 mt-4 md:mt-0">
+        <a class="link link-hover"><i class="fab fa-facebook"></i></a>
+        <a class="link link-hover"><i class="fab fa-github"></i></a>
+        <a class="link link-hover"><i class="fab fa-twitter"></i></a>
+        <a class="link link-hover"><i class="fab fa-linkedin"></i></a>
+      </div>
     
       <!-- Links -->
       <div class="space-x-4 mt-4 md:mt-0">

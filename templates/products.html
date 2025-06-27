@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="corporate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - NetGuardIQ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .card, .navbar, footer {
+      background-color: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(4px);
+    }
+    .neon {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+  </style>
+  
+</head>
+<body class="text-slate-100">
+
+<!-- Navbar -->
+<nav class="navbar shadow-md">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/" class="text-xl font-bold text-primary">NetGuardIQ</a>
+    <div class="space-x-4 hidden md:flex">
+      <a href="/products" class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Products</a>
+      <a href="/pricing" class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Pricing</a>
+      <a href="/contact" class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Contact</a>
+    </div>
+    <a href="/get-started" class="btn btn-primary transition-transform hover:scale-105">Get Started</a>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="py-16 text-center">
+  <div class="container mx-auto px-4">
+    <h1 class="text-4xl font-extrabold mb-4 neon">Our Products</h1>
+    <p class="text-lg opacity-80">Explore our suite of tools designed to strengthen your human firewall.</p>
+  </div>
+</section>
+
+<!-- Product Grid -->
+<section class="py-16">
+  <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+    <div class="card shadow hover:scale-105 transition-transform">
+      <div class="card-body text-center">
+        <h3 class="card-title text-white">Phishing Simulator</h3>
+        <p class="text-gray-300">Launch realistic phishing campaigns to measure readiness.</p>
+        <label for="demo-modal" class="btn btn-accent mt-4">View Demo</label>
+      </div>
+    </div>
+    <div class="card shadow hover:scale-105 transition-transform">
+      <div class="card-body text-center">
+        <h3 class="card-title text-white">Training Platform</h3>
+        <p class="text-gray-300">Educate employees with engaging cybersecurity lessons.</p>
+        <label for="demo-modal2" class="btn btn-accent mt-4">View Demo</label>
+      </div>
+    </div>
+    <div class="card shadow hover:scale-105 transition-transform">
+      <div class="card-body text-center">
+        <h3 class="card-title text-white">Reporting & Insights</h3>
+        <p class="text-gray-300">Analyze user behavior and track improvement over time.</p>
+        <a href="/contact" class="btn btn-accent mt-4">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Product Demos Modals -->
+<input type="checkbox" id="demo-modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box w-11/12 max-w-5xl bg-base-200">
+    <h3 class="font-bold text-lg mb-4">Phishing Simulator Demo</h3>
+    <div class="aspect-w-16 aspect-h-9">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="modal-action">
+      <label for="demo-modal" class="btn">Close</label>
+    </div>
+  </div>
+</div>
+
+<input type="checkbox" id="demo-modal2" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box w-11/12 max-w-5xl bg-base-200">
+    <h3 class="font-bold text-lg mb-4">Training Platform Demo</h3>
+    <div class="aspect-w-16 aspect-h-9">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="modal-action">
+      <label for="demo-modal2" class="btn">Close</label>
+    </div>
+  </div>
+</div>
+
+<!-- Animated Terminal Snippet -->
+<section class="py-16 bg-base-200">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8 neon">Command-Line Demo</h2>
+    <div class="max-w-2xl mx-auto bg-black p-6 rounded-lg text-green-400 font-mono text-sm shadow-lg">
+      <pre id="terminal"></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Download Example Report -->
+<div class="text-center mt-8">
+  <a href="/downloads/example-report.pdf" class="btn btn-success btn-lg">
+    Download Example Report
+  </a>
+</div>
+
+<!-- Footer -->
+<footer class="py-8 mt-16">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+    <p class="opacity-60">&copy; 2025 NetGuardIQ. All rights reserved.</p>
+    <div class="space-x-4 mt-4 md:mt-0">
+      <a href="#" class="link link-hover">Privacy Policy</a>
+      <a href="#" class="link link-hover">Terms of Service</a>
+      <a href="#" class="link link-hover">Contact</a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" class="link link-hover">Twitter</a>
+      <a href="https://github.com" target="_blank" rel="noopener" class="link link-hover">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
+<script>
+  new TypeIt("#terminal", {
+    speed: 40,
+    waitUntilVisible: true,
+    cursorChar: "_"
+  })
+  .type("$ git clone https://github.com/NetGuardIQ/phishing-simulator.git")
+  .pause(700)
+  .break()
+  .type("$ cd phishing-simulator")
+  .pause(500)
+  .break()
+  .type("$ npm install")
+  .pause(800)
+  .break()
+  .type("$ npm run start")
+  .pause(500)
+  .break()
+  .type("> Simulation server running on http://localhost:3000")
+  .go();
+</script>
+
+</body>
+</html>

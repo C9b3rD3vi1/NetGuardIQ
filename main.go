@@ -39,6 +39,7 @@ func main() {
 	app.Get("/fake_login", handlers.FakeLogin)
 	app.Get("/login", handlers.UserLoginHandler)
 	app.Get("/pricing", handlers.PrinceHandler)
+	app.Get("/products", handlers.ProductsHandler)
 
 	app.Listen(":3000")
 	fmt.Println("Server is running on port 3000")

@@ -14,11 +14,17 @@ func HomepageHandler(c *fiber.Ctx) error {
 }
 
 func PrinceHandler(c *fiber.Ctx) error {
-	return c.Render("princing", fiber.Map{
+	return c.Render("pricing", fiber.Map{
 		"Title": "Prince Handler",
 	})
 }
 
+
+func ProductsHandler(c *fiber.Ctx) error {
+	return c.Render("products", fiber.Map{
+		"Title": "Products Handler",
+	})
+}
 
 
 // Create Campaign Dashboard
