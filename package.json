@@ -1,0 +1,16 @@
+{
+  "name": "netguardiq",
+  "version": "1.0.0",
+  "description": "NetGuardIQ is a cloud-based Phishing Simulation and Security Awareness Training Platform. It empowers organizations to simulate real-world phishing attacks, track user behavior, and educate employees to identify and avoid threats.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rippleui": "^1.12.1",
+    "tailwindcss": "^4.1.11"
+  }
+}
