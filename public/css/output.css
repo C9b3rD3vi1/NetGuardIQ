@@ -18,6 +18,9 @@
 .static {
   position: static;
 }
+.z-10 {
+  z-index: 10;
+}
 .container {
   width: 100%;
 }
@@ -92,6 +95,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.overflow-hidden {
+  overflow: hidden;
+}
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
 .border {
   border-style: var(--tw-border-style);
   border-width: 1px;
@@ -113,9 +122,6 @@
 }
 .text-center {
   text-align: center;
-}
-.text-left {
-  text-align: left;
 }
 .uppercase {
   text-transform: uppercase;
@@ -149,11 +155,6 @@
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
 }
-.transition-colors {
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-  transition-timing-function: var(--tw-ease, ease);
-  transition-duration: var(--tw-duration, 0s);
-}
 .transition-transform {
   transition-property: transform, translate, scale, rotate;
   transition-timing-function: var(--tw-ease, ease);
@@ -176,6 +177,16 @@
       --tw-scale-x: 105%;
       --tw-scale-y: 105%;
       --tw-scale-z: 105%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+}
+.hover\:scale-110 {
+  &:hover {
+    @media (hover: hover) {
+      --tw-scale-x: 110%;
+      --tw-scale-y: 110%;
+      --tw-scale-z: 110%;
       scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }

@@ -41,6 +41,10 @@ func main() {
 	app.Get("/pricing", handlers.PrinceHandler)
 	app.Get("/products", handlers.ProductsHandler)
 
-	app.Listen(":3000")
+	
 	fmt.Println("Server is running on port 3000")
+	if err := app.Listen(":3000"); err != nil {
+    fmt.Println("Error starting server:", err)
+	}
+
 }

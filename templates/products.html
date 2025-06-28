@@ -6,6 +6,7 @@
   <title>Products - NetGuardIQ</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
     body {
       background-color: #0f172a;
@@ -18,88 +19,142 @@
     .neon {
       text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
     }
+    #matrix {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
   </style>
-  
 </head>
-<body class="text-slate-100">
+<body class="text-slate-100 scroll-smooth">
 
 <!-- Navbar -->
-<nav class="navbar shadow-md">
+<nav class="navbar shadow-md relative z-10">
   <div class="container mx-auto flex justify-between items-center">
     <a href="/" class="text-xl font-bold text-primary">NetGuardIQ</a>
     <div class="space-x-4 hidden md:flex">
-      <a href="/products" class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Products</a>
-      <a href="/pricing" class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Pricing</a>
-      <a href="/contact" class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Contact</a>
+      <a href="#products" class="btn btn-ghost hover:bg-primary hover:text-white">Products</a>
+      <a href="#faq" class="btn btn-ghost hover:bg-primary hover:text-white">FAQ</a>
+      <a href="/contact" class="btn btn-ghost hover:bg-primary hover:text-white">Contact</a>
     </div>
-    <a href="/get-started" class="btn btn-primary transition-transform hover:scale-105">Get Started</a>
+    <a href="/get-started" class="btn btn-primary hover:scale-105">Get Started</a>
   </div>
 </nav>
 
-<!-- Page Header -->
-<section class="py-16 text-center">
-  <div class="container mx-auto px-4">
-    <h1 class="text-4xl font-extrabold mb-4 neon">Our Products</h1>
-    <p class="text-lg opacity-80">Explore our suite of tools designed to strengthen your human firewall.</p>
+<!-- Hero Section with Matrix -->
+<section class="relative py-24 text-center overflow-hidden">
+  <canvas id="matrix"></canvas>
+  <div class="relative z-10 container mx-auto px-4">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4 neon" data-aos="fade-down">NetGuard<span class="text-pink-500">IQ</span></h1>
+    <p class="text-xl opacity-80 mb-6" data-aos="fade-up">Simulate, Educate, Protect—All in One Platform.</p>
+    <a href="#products" class="btn btn-primary btn-lg hover:scale-110">Explore Products</a>
+  </div>
+</section>
+
+<!-- Animated Counters -->
+<section class="py-16">
+  <div class="container mx-auto px-4 grid md:grid-cols-4 gap-8 text-center">
+    <div data-aos="fade-up">
+      <h3 class="text-5xl font-bold neon" id="counter1">0</h3>
+      <p class="opacity-70">Simulations Run</p>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="150">
+      <h3 class="text-5xl font-bold neon" id="counter2">0</h3>
+      <p class="opacity-70">Companies Protected</p>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="300">
+      <h3 class="text-5xl font-bold neon" id="counter3">0</h3>
+      <p class="opacity-70">Employees Trained</p>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="450">
+      <h3 class="text-5xl font-bold neon" id="counter4">0</h3>
+      <p class="opacity-70">Reports Generated</p>
+    </div>
   </div>
 </section>
 
 <!-- Product Grid -->
-<section class="py-16">
+<section id="products" class="py-16">
   <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
-    <div class="card shadow hover:scale-105 transition-transform">
+    <div class="card hover:scale-105" data-aos="fade-up">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Phishing Simulator</h3>
-        <p class="text-gray-300">Launch realistic phishing campaigns to measure readiness.</p>
-        <label for="demo-modal" class="btn btn-accent mt-4">View Demo</label>
+        <p class="text-gray-300">Launch realistic phishing campaigns to test readiness.</p>
+        <label href="https://www.youtube.com/watch?v=XBkzBrXlle0" for="demo-modal1" class="btn btn-accent mt-4">View Demo</label>
       </div>
     </div>
-    <div class="card shadow hover:scale-105 transition-transform">
+    <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="100">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Training Platform</h3>
-        <p class="text-gray-300">Educate employees with engaging cybersecurity lessons.</p>
+        <p class="text-gray-300">Interactive lessons to build security culture.</p>
         <label for="demo-modal2" class="btn btn-accent mt-4">View Demo</label>
       </div>
     </div>
-    <div class="card shadow hover:scale-105 transition-transform">
+    <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="200">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Reporting & Insights</h3>
-        <p class="text-gray-300">Analyze user behavior and track improvement over time.</p>
+        <p class="text-gray-300">Detailed analytics to track progress and compliance.</p>
         <a href="/contact" class="btn btn-accent mt-4">Contact Sales</a>
+      </div>
+    </div>
+    <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+      <div class="card-body text-center">
+        <h3 class="card-title text-white">Risk Assessment</h3>
+        <p class="text-gray-300">Automate security assessments across your organization.</p>
+        <label for="demo-modal3" class="btn btn-accent mt-4">View Demo</label>
+      </div>
+    </div>
+    <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="400">
+      <div class="card-body text-center">
+        <h3 class="card-title text-white">Threat Intelligence Feed</h3>
+        <p class="text-gray-300">Stay informed with real-time threat data.</p>
+        <a href="/contact" class="btn btn-accent mt-4">Learn More</a>
+      </div>
+    </div>
+    <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="500">
+      <div class="card-body text-center">
+        <h3 class="card-title text-white">Policy Manager</h3>
+        <p class="text-gray-300">Distribute and track policy acknowledgements.</p>
+        <a href="/contact" class="btn btn-accent mt-4">Get Started</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Interactive Product Demos Modals -->
-<input type="checkbox" id="demo-modal" class="modal-toggle" />
+<!-- Modals -->
+<input type="checkbox" id="demo-modal1" class="modal-toggle" />
 <div class="modal">
-  <div class="modal-box w-11/12 max-w-5xl bg-base-200">
+  <div class="modal-box w-11/12 max-w-4xl bg-base-200">
     <h3 class="font-bold text-lg mb-4">Phishing Simulator Demo</h3>
-    <div class="aspect-w-16 aspect-h-9">
-      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="modal-action">
-      <label for="demo-modal" class="btn">Close</label>
-    </div>
+    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
+    <div class="modal-action"><label for="demo-modal1" class="btn">Close</label></div>
   </div>
 </div>
 
 <input type="checkbox" id="demo-modal2" class="modal-toggle" />
 <div class="modal">
-  <div class="modal-box w-11/12 max-w-5xl bg-base-200">
+  <div class="modal-box w-11/12 max-w-4xl bg-base-200">
     <h3 class="font-bold text-lg mb-4">Training Platform Demo</h3>
-    <div class="aspect-w-16 aspect-h-9">
-      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="modal-action">
-      <label for="demo-modal2" class="btn">Close</label>
-    </div>
+    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
+    <div class="modal-action"><label for="demo-modal2" class="btn">Close</label></div>
   </div>
 </div>
 
-<!-- Animated Terminal Snippet -->
-<section class="py-16 bg-base-200">
+<input type="checkbox" id="demo-modal3" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box w-11/12 max-w-4xl bg-base-200">
+    <h3 class="font-bold text-lg mb-4">Risk Assessment Demo</h3>
+    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
+    <div class="modal-action"><label for="demo-modal3" class="btn">Close</label></div>
+  </div>
+</div>
+
+<!-- Terminal Simulation Section -->
+<section id="terminal-demo" class="py-16 bg-black">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-8 neon">Command-Line Demo</h2>
     <div class="max-w-2xl mx-auto bg-black p-6 rounded-lg text-green-400 font-mono text-sm shadow-lg">
@@ -108,12 +163,31 @@
   </div>
 </section>
 
-<!-- Download Example Report -->
-<div class="text-center mt-8">
-  <a href="/downloads/example-report.pdf" class="btn btn-success btn-lg">
-    Download Example Report
-  </a>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-16 bg-base-200">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8 neon">Frequently Asked Questions</h2>
+    <div class="max-w-2xl mx-auto space-y-4">
+      <div class="collapse collapse-arrow">
+        <input type="checkbox"/>
+        <div class="collapse-title text-xl font-medium">How does simulation work?</div>
+        <div class="collapse-content"><p>We send simulated phishing emails and track engagement.</p></div>
+      </div>
+      <div class="collapse collapse-arrow">
+        <input type="checkbox"/>
+        <div class="collapse-title text-xl font-medium">Is data secure?</div>
+        <div class="collapse-content"><p>All data is encrypted and never shared.</p></div>
+      </div>
+      <div class="collapse collapse-arrow">
+        <input type="checkbox"/>
+        <div class="collapse-title text-xl font-medium">Can I customize campaigns?</div>
+        <div class="collapse-content"><p>Yes, fully customizable templates and scheduling.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Footer -->
 <footer class="py-8 mt-16">
@@ -130,7 +204,52 @@
 </footer>
 
 <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+  const counters = [
+    { id: "counter1", target: 1250 },
+    { id: "counter2", target: 340 },
+    { id: "counter3", target: 7800 },
+    { id: "counter4", target: 2200 }
+  ];
+  counters.forEach(counter => {
+    let i = 0;
+    const el = document.getElementById(counter.id);
+    const step = Math.ceil(counter.target / 200);
+    const interval = setInterval(() => {
+      i += step;
+      if (i >= counter.target) {
+        i = counter.target;
+        clearInterval(interval);
+      }
+      el.textContent = i.toLocaleString();
+    }, 20);
+  });
+
+  const canvas = document.getElementById("matrix");
+  const ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  const letters = "0101010101010";
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }, () => 1);
+  function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#0ff";
+    ctx.font = fontSize + "px monospace";
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+  }
+  setInterval(draw, 33);
+</script>
+
 <script>
   new TypeIt("#terminal", {
     speed: 40,
@@ -153,5 +272,17 @@
   .go();
 </script>
 
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+  })();
+</script>
 </body>
 </html>
