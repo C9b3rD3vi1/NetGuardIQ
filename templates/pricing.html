@@ -1,90 +1,223 @@
+
+{{ define "pricing_content" }}
+
 <!DOCTYPE html>
 <html lang="en" data-theme="corporate">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing - NetGuardIQ</title>
+  <title>Pricing – NetGuardIQ</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" />
-  <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      font-family: 'Fira Code', monospace;
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    .comparison-table td,
+    .comparison-table th {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.75rem;
+      text-align: center;
+    }
+  </style>
 </head>
-<body class="bg-base-100 text-base-content">
+<body class="scroll-smooth">
 
   <!-- Navbar -->
-  <div class="navbar bg-base-100 shadow-md">
+  <nav class="navbar bg-base-200 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
       <a href="index.html" class="text-xl font-bold text-primary">NetGuardIQ</a>
       <div class="space-x-4 hidden md:flex">
-        <a class="btn btn-ghost">Features</a>
-        <a class="btn btn-ghost">Pricing</a>
-        <a class="btn btn-ghost">Contact</a>
+        <a href="index.html#products" class="btn btn-ghost hover:bg-primary hover:text-white">Features</a>
+        <a href="pricing.html" class="btn btn-ghost hover:bg-primary hover:text-white">Pricing</a>
+        <a href="contact.html" class="btn btn-ghost hover:bg-primary hover:text-white">Contact</a>
       </div>
       <a href="signup.html" class="btn btn-primary">Get Started</a>
     </div>
-  </div>
+  </nav>
 
-  <!-- Pricing Plans -->
-  <section class="py-20">
+  <!-- Pricing Section -->
+  <section class="py-20 relative z-10">
     <div class="container mx-auto px-4">
       <h1 class="text-4xl font-bold text-center mb-12 animate__animated animate__fadeInDown">
         Choose Your Plan
       </h1>
+
+      <!-- Toggle Switch -->
+      <div class="flex justify-center items-center mb-8 gap-3">
+        <span class="text-sm">Monthly</span>
+        <input type="checkbox" class="toggle toggle-primary" id="billing-toggle"/>
+        <span class="text-sm">Yearly <span class="text-xs opacity-70">(Save 20%)</span></span>
+      </div>
+
+      <!-- Plans -->
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Starter -->
-        <div class="card bg-base-200 shadow hover:scale-105 transition">
+        <div class="card bg-slate-800 text-slate-100 transition duration-300 hover:scale-105">
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Starter</h2>
-            <p class="text-4xl font-bold my-4">$29<span class="text-base font-normal">/mo</span></p>
+            <h2 class="card-title">
+              Starter
+              <span class="tooltip tooltip-right" data-tip="Ideal for individuals">
+                💡
+              </span>
+            </h2>
+            <p class="text-4xl font-bold my-4 price" data-monthly="29" data-yearly="278">$29<span class="text-base font-normal">/mo</span></p>
             <ul class="mb-6 space-y-2">
-              <li>Up to 50 Users</li>
-              <li>Basic Reporting</li>
-              <li>Email Support</li>
+              <li>✅ Up to 50 Users</li>
+              <li>✅ Basic Reporting</li>
+              <li>✅ Email Support</li>
+              <li>✅ Community Access</li>
+              <li>✅ Single Project</li>
             </ul>
-            <a href="signup.html" class="btn btn-primary">Get Started</a>
+            <a href="signup.html" class="btn btn-primary w-full">Get Started</a>
           </div>
         </div>
-        <!-- Pro -->
-        <div class="card bg-primary text-white shadow-lg hover:scale-105 transition">
+
+        <!-- Pro (Most Popular) -->
+        <div class="card bg-primary text-primary-content shadow-lg relative transition duration-300 hover:scale-105">
+          <span class="badge badge-secondary absolute top-4 right-4">Most Popular</span>
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Pro</h2>
-            <p class="text-4xl font-bold my-4">$79<span class="text-base font-normal">/mo</span></p>
+            <h2 class="card-title">
+              Pro
+              <span class="tooltip tooltip-right" data-tip="Best for growing teams">
+                🚀
+              </span>
+            </h2>
+            <p class="text-4xl font-bold my-4 price" data-monthly="79" data-yearly="758">$79<span class="text-base font-normal">/mo</span></p>
             <ul class="mb-6 space-y-2">
-              <li>Up to 250 Users</li>
-              <li>Advanced Reporting</li>
-              <li>Priority Support</li>
+              <li>✅ Up to 250 Users</li>
+              <li>✅ Advanced Reporting</li>
+              <li>✅ Priority Support</li>
+              <li>✅ Multiple Projects</li>
+              <li>✅ API Access</li>
             </ul>
-            <a href="signup.html" class="btn btn-accent">Get Started</a>
+            <a href="signup.html" class="btn btn-accent w-full">Get Started</a>
           </div>
         </div>
+
         <!-- Enterprise -->
-        <div class="card bg-base-200 shadow hover:scale-105 transition">
+        <div class="card bg-indigo-800 text-indigo-100 transition duration-300 hover:scale-105">
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Enterprise</h2>
+            <h2 class="card-title">
+              Enterprise
+              <span class="tooltip tooltip-right" data-tip="Tailored solutions for large orgs">
+                🏢
+              </span>
+            </h2>
             <p class="text-4xl font-bold my-4">Custom</p>
             <ul class="mb-6 space-y-2">
-              <li>Unlimited Users</li>
-              <li>Dedicated Success Manager</li>
-              <li>Custom Integrations</li>
+              <li>✅ Unlimited Users</li>
+              <li>✅ Dedicated Success Manager</li>
+              <li>✅ Custom Integrations</li>
+              <li>✅ SLA Guarantee</li>
+              <li>✅ White-label Solutions</li>
             </ul>
-            <a href="signup.html" class="btn btn-primary">Contact Sales</a>
+            <a href="contact.html" class="btn btn-primary w-full">Contact Sales</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Comparison Table -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Compare Plans</h2>
+      <div class="overflow-x-auto">
+        <table class="comparison-table w-full text-sm md:text-base">
+          <thead>
+            <tr class="bg-base-200">
+              <th>Features</th>
+              <th>Starter</th>
+              <th>Pro</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Users</td>
+              <td>Up to 50</td>
+              <td>Up to 250</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>Reporting</td>
+              <td>Basic</td>
+              <td>Advanced</td>
+              <td>Advanced + Custom</td>
+            </tr>
+            <tr>
+              <td>Support</td>
+              <td>Email</td>
+              <td>Priority</td>
+              <td>Dedicated Manager</td>
+            </tr>
+            <tr>
+              <td>Projects</td>
+              <td>1</td>
+              <td>Unlimited</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>API Access</td>
+              <td>❌</td>
+              <td>✅</td>
+              <td>✅</td>
+            </tr>
+            <tr>
+              <td>SLA Guarantee</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>✅</td>
+            </tr>
+            <tr>
+              <td>White-label</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="py-8 bg-base-200">
+  <footer class="py-8 bg-base-200 mt-16">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-      <p>&copy; 2025 NetGuardIQ. All rights reserved.</p>
+      <p class="opacity-60">&copy; 2025 NetGuardIQ. All rights reserved.</p>
       <div class="space-x-4 mt-4 md:mt-0">
-        <a class="link link-hover">Privacy Policy</a>
-        <a class="link link-hover">Terms</a>
-        <a class="link link-hover">Contact</a>
+        <a href="#" class="link link-hover">Privacy Policy</a>
+        <a href="#" class="link link-hover">Terms</a>
+        <a href="contact.html" class="link link-hover">Contact</a>
       </div>
     </div>
   </footer>
 
+  <!-- Toggle Pricing Script -->
+  <script>
+    const toggle = document.getElementById('billing-toggle');
+    const prices = document.querySelectorAll('.price');
+    toggle.addEventListener('change', () => {
+      prices.forEach(el => {
+        const monthly = el.dataset.monthly;
+        const yearly = el.dataset.yearly;
+        if (toggle.checked) {
+          el.innerHTML = `$${yearly}<span class="text-base font-normal">/yr</span>`;
+        } else {
+          el.innerHTML = `$${monthly}<span class="text-base font-normal">/mo</span>`;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+
+{{ end }}

@@ -19,6 +19,8 @@ func main() {
 
 	// set template engine
 	engine := html.New("./templates", ".html")
+	engine.Reload(true) // Enable template reloading in development mode
+
 
 
 	app := fiber.New(fiber.Config{
@@ -38,6 +40,7 @@ func main() {
 	app.Get("/tracking/:id", handlers.TrackClick)
 	app.Get("/fake_login", handlers.FakeLogin)
 	app.Get("/login", handlers.UserLoginHandler)
+	app.Get("/signup", handlers.UserRegisterHandler)
 	app.Get("/pricing", handlers.PrinceHandler)
 	app.Get("/products", handlers.ProductsHandler)
 

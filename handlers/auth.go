@@ -11,7 +11,15 @@ import (
 // User login Function
 func UserLoginHandler(c *fiber.Ctx) error {
 	// Render the login page
-	return c.Render("base", fiber.Map{
-		"Title": "Login",
+	return c.Render("login", fiber.Map{
+		
+	})
+}
+
+// User registration Function
+func UserRegisterHandler(c *fiber.Ctx) error {
+	// Render the registration page
+	return c.Render("signup", fiber.Map{
+		
 	})
 }

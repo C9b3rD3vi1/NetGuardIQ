@@ -1,36 +1,95 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light" class="duration-300 ease-in-out">
 
+
+{{ define "base" }}
+
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ .Title }} - NetGuardIQ</title>
-  <link href="/public/css/output.css" rel="stylesheet" />
+  <title>{{ block "title" . }}NetGuardIQ{{ end }}</title>
+  <!-- Tailwind & DaisyUI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" />
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom Hacker Style -->
+  <style>
+    body {
+      font-family: 'Fira Code', monospace;
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .brand-glitch {
+      animation: glitch 1.5s infinite;
+    }
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 lime, -2px 0 magenta; }
+      20% { text-shadow: -2px 0 lime, 2px 0 magenta; }
+      40% { text-shadow: 2px 0 lime, -2px 0 magenta; }
+      60% { text-shadow: -2px 0 lime, 2px 0 magenta; }
+      80% { text-shadow: 2px 0 lime, -2px 0 magenta; }
+      100% { text-shadow: -2px 0 lime, 2px 0 magenta; }
+    }
+    .nav-link:hover, .btn-ghost:hover {
+      color: #00ff9c;
+      background-color: rgba(0, 255, 156, 0.1);
+    }
+    .btn-primary {
+      background-color: #00ff9c;
+      color: #0f172a;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #00cc7a;
+    }
+  </style>
+  {{ block "head" . }}{{ end }}
 </head>
-<body class="bg-base-200 min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col transition-colors duration-300">
 
-  <!-- Header -->
-  <header class="bg-base-100 shadow-md border-b border-base-300">
-    <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-3 gap-2">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 text-xl font-bold text-primary">
-        NetGuardIQ
-      </a>
+  <!-- Navbar -->
+  <header class="bg-base-100 shadow border-b border-base-300">
+    <div class="navbar container mx-auto px-4 flex flex-wrap justify-between items-center">
+      <!-- Brand -->
+      <a href="/" class="text-xl font-bold brand-glitch">
+  <span class="text-accent">NetGuard</span><span class="text-red-500">IQ</span>
+</a>
 
-      <!-- Navigation -->
-      <nav class="flex flex-wrap gap-2 md:gap-4 items-center" role="navigation">
-        <a href="/" class="btn btn-ghost btn-sm transition duration-150 hover:scale-[1.03]">Home</a>
-        <a href="/dashboard" class="btn btn-ghost btn-sm transition duration-150 hover:scale-[1.03]">Dashboard</a>
-        <a class="btn btn-ghost">Features</a>
-        <a class="btn btn-ghost">Pricing</a>
-        <a class="btn btn-ghost">Contact</a>
+      <!-- Mobile toggle -->
+      <div class="dropdown md:hidden">
+        <label tabindex="0" class="btn btn-ghost btn-sm">
+          <i data-feather="menu"></i>
+        </label>
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+          <li><a href="/products" class="nav-link">Features</a></li>
+          <li><a href="/pricing" class="nav-link">Pricing</a></li>
+          <li><a href="/contact" class="nav-link">Contact</a></li>
+          <li><a href="/campaigns/new" class="btn btn-primary btn-sm">+ New Campaign</a></li>
+          <li><a href="/login" class="nav-link">Login</a></li>
+          <li><a href="/signup" class="nav-link">Sign Up</a></li>
+          <li><a href="/profile" class="nav-link">Profile</a></li>
+          <li><a href="/logout" class="nav-link">Logout</a></li>
+          <li><button onclick="toggleTheme()" class="nav-link">🌙 Toggle Theme</button></li>
+        </ul>
+      </div>
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="/" class="btn btn-ghost btn-sm">Home</a>
+        <a href="/dashboard" class="btn btn-ghost btn-sm">Dashboard</a>
+        <a href="/products" class="btn btn-ghost btn-sm">Features</a>
+        <a href="/pricing" class="btn btn-ghost btn-sm">Pricing</a>
+        <a href="/contact" class="btn btn-ghost btn-sm">Contact</a>
         <a href="/campaigns/new" class="btn btn-primary btn-sm">+ New Campaign</a>
         <a href="/login" class="btn btn-ghost btn-sm">Login</a>
-        <a href="/register" class="btn btn-ghost btn-sm">Register</a>
+        <a href="/signup" class="btn btn-ghost btn-sm">Sign Up</a>
         <a href="/profile" class="btn btn-ghost btn-sm">Profile</a>
         <a href="/logout" class="btn btn-ghost btn-sm">Logout</a>
-        <button 
-          onclick="toggleTheme()" 
+        <button
+          onclick="toggleTheme()"
           class="btn btn-ghost btn-sm"
           title="Toggle Dark Mode"
           aria-label="Toggle Dark Mode"
@@ -42,22 +101,45 @@
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow container mx-auto p-6">
+  <main class="flex-grow container mx-auto px-4 py-8">
     {{ block "content" . }}
+    
     {{ end }}
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center p-4 bg-base-100 text-base-content border-t">
-    <p>&copy; 2025 NetGuardIQ. All rights reserved.</p>
+  <footer class="footer footer-center p-6 bg-base-100 border-t border-base-300">
+    <div>
+      <p class="text-accent">&copy; 2025 NetGuardIQ. All rights reserved.</p>
+    </div>
+    <nav class="grid grid-flow-col gap-4">
+      <a href="https://twitter.com" class="hover:text-accent" aria-label="Twitter">
+        <i data-feather="twitter"></i>
+      </a>
+      <a href="https://github.com" class="hover:text-accent" aria-label="GitHub">
+        <i data-feather="github"></i>
+      </a>
+      <a href="https://linkedin.com" class="hover:text-accent" aria-label="LinkedIn">
+        <i data-feather="linkedin"></i>
+      </a>
+      <a href="https://youtube.com" class="hover:text-accent" aria-label="YouTube">
+        <i data-feather="youtube"></i>
+    </nav>
   </footer>
 
-  <!-- Theme Toggle Script -->
+  <!-- Scripts -->
   <script>
+    // Theme toggle
     function toggleTheme() {
       const html = document.documentElement;
       html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
     }
+    // Initialize Feather icons
+    feather.replace({ color: '#00ff9c' });
   </script>
+  {{ block "scripts" . }}{{ end }}
 </body>
 </html>
+
+
+{{ end }}

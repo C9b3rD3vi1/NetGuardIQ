@@ -1,59 +1,67 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="corporate">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up - NetGuardIQ</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-</head>
-<body class="bg-base-100 text-base-content">
 
-  <!-- Navbar -->
-  <div class="navbar bg-base-100 shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold text-primary">NetGuardIQ</a>
-      <a href="pricing.html" class="btn btn-ghost">Pricing</a>
-    </div>
-  </div>
+{{ define "title" }}Sign Up – NetGuardIQ {{ end }}
 
-  <!-- Signup Form -->
-  <section class="py-20">
-    <div class="container mx-auto px-4 max-w-lg">
-      <div class="card bg-base-200 shadow animate__animated animate__fadeIn">
-        <div class="card-body">
-          <h1 class="text-3xl font-bold text-center mb-4">Create Your Account</h1>
-          <form class="space-y-4">
-            <div>
-              <label class="label">Email</label>
-              <input type="email" placeholder="you@example.com" class="input input-bordered w-full" required />
-            </div>
-            <div>
-              <label class="label">Password</label>
-              <input type="password" placeholder="••••••••" class="input input-bordered w-full" required />
-            </div>
-            <div>
-              <label class="label">Company</label>
-              <input type="text" placeholder="Your Company" class="input input-bordered w-full" />
-            </div>
-            <button type="submit" class="btn btn-primary w-full">Sign Up</button>
-            <p class="text-center mt-4 text-sm">
-              Already have an account?
-              <a href="#" class="link link-primary">Log In</a>
-            </p>
-          </form>
-        </div>
+{{ define "signup_content" }}
+<div class="flex items-center justify-center min-h-screen bg-base-200 px-4">
+  <div class="card w-full max-w-md bg-neutral text-neutral-content shadow-2xl animate__animated animate__fadeIn">
+    <form class="card-body space-y-5">
+      <h1 class="text-3xl font-bold text-center text-accent tracking-wider">Create Your Account</h1>
+
+      <!-- Email Field -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text text-base-content">Email</span>
+        </label>
+        <input 
+          type="email"
+          placeholder="you@example.com"
+          class="input input-bordered input-primary w-full bg-base-100 text-base-content focus:outline-none focus:ring-2 focus:ring-primary"
+          required
+        />
       </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="py-8 bg-base-200">
-    <div class="container mx-auto px-4 text-center">
-      <p>&copy; 2025 NetGuardIQ. All rights reserved.</p>
-    </div>
-  </footer>
+      <!-- Password Field -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text text-base-content">Password</span>
+        </label>
+        <input 
+          type="password"
+          placeholder="••••••••"
+          class="input input-bordered input-primary w-full bg-base-100 text-base-content focus:outline-none focus:ring-2 focus:ring-primary"
+          required
+        />
+      </div>
 
-</body>
-</html>
+      <!-- Company Field -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text text-base-content">Company</span>
+        </label>
+        <input 
+          type="text"
+          placeholder="Your Company"
+          class="input input-bordered input-primary w-full bg-base-100 text-base-content focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-control mt-4">
+        <button 
+          type="submit" 
+          class="btn btn-accent w-full uppercase tracking-wide hover:scale-105 transition-transform duration-200"
+        >
+          <i data-feather="user-plus" class="mr-2"></i>
+          Sign Up
+        </button>
+      </div>
+
+      <!-- Login Link -->
+      <p class="text-center text-sm text-base-content">
+        Already have an account?
+        <a href="/login" class="link link-accent">Log In</a>
+      </p>
+    </form>
+  </div>
+</div>
+{{ end }}

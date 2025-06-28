@@ -7,10 +7,26 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+  <!-- TypeIt Library -->
+<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
   <style>
     body {
       background-color: #0f172a;
       color: #e2e8f0;
+      font-family: 'Fira Code', monospace;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
+      pointer-events: none;
     }
     .card, .navbar, footer {
       background-color: rgba(30, 41, 59, 0.85);
@@ -18,6 +34,58 @@
     }
     .neon {
       text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      animation: neonPulse 2s infinite alternate;
+    }
+
+    .terminal-container {
+  background-color: #000000;
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,255,0,0.4);
+  border: 1px solid rgba(0,255,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.terminal-container::before {
+  content: "root@netguardiq:~";
+  display: block;
+  background-color: rgba(0,255,0,0.05);
+  color: #00ff00;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(0,255,0,0.3);
+  margin-bottom: 1rem;
+}
+#terminal {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+    @keyframes neonPulse {
+      0% { text-shadow: 0 0 10px #0ff; }
+      100% { text-shadow: 0 0 20px #0ff; }
+    }
+    .btn-hacker {
+      background-color: #00f7ff;
+      color: #0f172a;
+      border: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .btn-hacker:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
+    .ascii-divider {
+      color: #64748b;
+      text-align: center;
+      font-size: 0.75rem;
+      margin: 2rem 0;
     }
     #matrix {
       display: block;
@@ -41,7 +109,7 @@
       <a href="#faq" class="btn btn-ghost hover:bg-primary hover:text-white">FAQ</a>
       <a href="/contact" class="btn btn-ghost hover:bg-primary hover:text-white">Contact</a>
     </div>
-    <a href="/get-started" class="btn btn-primary hover:scale-105">Get Started</a>
+    <a href="/get-started" class="btn btn-hacker hover:scale-105">Get Started</a>
   </div>
 </nav>
 
@@ -49,9 +117,14 @@
 <section class="relative py-24 text-center overflow-hidden">
   <canvas id="matrix"></canvas>
   <div class="relative z-10 container mx-auto px-4">
-    <h1 class="text-5xl md:text-6xl font-extrabold mb-4 neon" data-aos="fade-down">NetGuard<span class="text-pink-500">IQ</span></h1>
-    <p class="text-xl opacity-80 mb-6" data-aos="fade-up">Simulate, Educate, Protect—All in One Platform.</p>
-    <a href="#products" class="btn btn-primary btn-lg hover:scale-110">Explore Products</a>
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4 neon" data-aos="fade-down">
+      NetGuard<span class="text-pink-500">IQ</span>
+    </h1>
+    <p class="text-green-400 font-mono text-sm mt-2">root@netguardiq:~$ ./start --secure</p>
+    <p class="text-xl opacity-80 mb-6" data-aos="fade-up">
+      Simulate, Educate, Protect — All in One Platform.
+    </p>
+    <a href="#products" class="btn btn-hacker btn-lg">Explore Products</a>
   </div>
 </section>
 
@@ -77,96 +150,125 @@
   </div>
 </section>
 
+<pre class="ascii-divider">──────────────────────────────────────────────</pre>
+
+<!-- Product Grid -->
 <!-- Product Grid -->
 <section id="products" class="py-16">
   <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+
+    <!-- Phishing Simulator -->
     <div class="card hover:scale-105" data-aos="fade-up">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Phishing Simulator</h3>
         <p class="text-gray-300">Launch realistic phishing campaigns to test readiness.</p>
-        <label href="https://www.youtube.com/watch?v=XBkzBrXlle0" for="demo-modal1" class="btn btn-accent mt-4">View Demo</label>
+        <label for="modal-phishing" class="btn btn-hacker mt-4">View Demo</label>
       </div>
     </div>
+
+    <!-- Training Platform -->
     <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="100">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Training Platform</h3>
         <p class="text-gray-300">Interactive lessons to build security culture.</p>
-        <label for="demo-modal2" class="btn btn-accent mt-4">View Demo</label>
+        <label for="modal-training" class="btn btn-hacker mt-4">View Demo</label>
       </div>
     </div>
+
+    <!-- Reporting & Insights -->
     <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="200">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Reporting & Insights</h3>
         <p class="text-gray-300">Detailed analytics to track progress and compliance.</p>
-        <a href="/contact" class="btn btn-accent mt-4">Contact Sales</a>
+        <a href="/contact" class="btn btn-hacker mt-4">Contact Sales</a>
       </div>
     </div>
+
+    <!-- Risk Assessment -->
     <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="300">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Risk Assessment</h3>
         <p class="text-gray-300">Automate security assessments across your organization.</p>
-        <label for="demo-modal3" class="btn btn-accent mt-4">View Demo</label>
+        <a href="#" class="btn btn-hacker mt-4">View Demo</a>
       </div>
     </div>
+
+    <!-- Threat Intelligence Feed -->
     <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="400">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Threat Intelligence Feed</h3>
         <p class="text-gray-300">Stay informed with real-time threat data.</p>
-        <a href="/contact" class="btn btn-accent mt-4">Learn More</a>
+        <a href="/contact" class="btn btn-hacker mt-4">Learn More</a>
       </div>
     </div>
+
+    <!-- Policy Manager -->
     <div class="card hover:scale-105" data-aos="fade-up" data-aos-delay="500">
       <div class="card-body text-center">
         <h3 class="card-title text-white">Policy Manager</h3>
         <p class="text-gray-300">Distribute and track policy acknowledgements.</p>
-        <a href="/contact" class="btn btn-accent mt-4">Get Started</a>
+        <a href="/contact" class="btn btn-hacker mt-4">Get Started</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phishing Simulator Modal -->
+  <input type="checkbox" id="modal-phishing" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box w-11/12 max-w-4xl bg-base-200">
+      <h3 class="font-bold text-lg mb-4">Phishing Simulator Demo</h3>
+      <div class="w-full aspect-video">
+        <iframe
+          class="w-full h-full rounded"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="modal-action">
+        <label for="modal-phishing" class="btn">Close</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Training Platform Modal -->
+  <input type="checkbox" id="modal-training" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box w-11/12 max-w-4xl bg-base-200">
+      <h3 class="font-bold text-lg mb-4">Training Platform Demo</h3>
+      <div class="w-full aspect-video">
+        <iframe
+          class="w-full h-full rounded"
+          src="https://www.youtube.com/watch?v=XBkzBrXlle0"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="modal-action">
+        <label for="modal-training" class="btn">Close</label>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Modals -->
-<input type="checkbox" id="demo-modal1" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box w-11/12 max-w-4xl bg-base-200">
-    <h3 class="font-bold text-lg mb-4">Phishing Simulator Demo</h3>
-    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
-    <div class="modal-action"><label for="demo-modal1" class="btn">Close</label></div>
-  </div>
-</div>
 
-<input type="checkbox" id="demo-modal2" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box w-11/12 max-w-4xl bg-base-200">
-    <h3 class="font-bold text-lg mb-4">Training Platform Demo</h3>
-    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
-    <div class="modal-action"><label for="demo-modal2" class="btn">Close</label></div>
-  </div>
-</div>
-
-<input type="checkbox" id="demo-modal3" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box w-11/12 max-w-4xl bg-base-200">
-    <h3 class="font-bold text-lg mb-4">Risk Assessment Demo</h3>
-    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
-    <div class="modal-action"><label for="demo-modal3" class="btn">Close</label></div>
-  </div>
-</div>
+<pre class="ascii-divider">──────────────────────────────────────────────</pre>
 
 <!-- Terminal Simulation Section -->
 <section id="terminal-demo" class="py-16 bg-black">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-8 neon">Command-Line Demo</h2>
-    <div class="max-w-2xl mx-auto bg-black p-6 rounded-lg text-green-400 font-mono text-sm shadow-lg">
+    <div class="terminal-container max-w-2xl mx-auto">
       <pre id="terminal"></pre>
     </div>
   </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
 
 <!-- FAQ Section -->
-<section id="faq" class="py-16 bg-base-200">
+<section id="faq" class="py-16 bg-base-200 text-black background-color-blue">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-8 neon">Frequently Asked Questions</h2>
     <div class="max-w-2xl mx-auto space-y-4">
@@ -250,39 +352,48 @@
   setInterval(draw, 33);
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
 <script>
-  new TypeIt("#terminal", {
-    speed: 40,
-    waitUntilVisible: true,
-    cursorChar: "_"
-  })
-  .type("$ git clone https://github.com/NetGuardIQ/phishing-simulator.git")
-  .pause(700)
-  .break()
-  .type("$ cd phishing-simulator")
-  .pause(500)
-  .break()
-  .type("$ npm install")
-  .pause(800)
-  .break()
-  .type("$ npm run start")
-  .pause(500)
-  .break()
-  .type("> Simulation server running on http://localhost:3000")
-  .go();
+  document.addEventListener("DOMContentLoaded", function() {
+    new TypeIt("#terminal", {
+      speed: 40,
+      waitUntilVisible: true,
+      cursorChar: "_"
+    })
+    .type("$ git clone https://github.com/NetGuardIQ/phishing-simulator.git")
+    .pause(700)
+    .break()
+    .type("$ cd phishing-simulator")
+    .pause(500)
+    .break()
+    .type("$ npm install")
+    .pause(800)
+    .break()
+    .type("$ npm run start")
+    .pause(500)
+    .break()
+    .type("> Simulation server running on http://localhost:3000")
+    .go();
+  });
 </script>
 
+
 <!-- Tawk.to Live Chat -->
+<!--Start of Tawk.to Script-->
 <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-  })();
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/685fd2646a55a6191184c547/1iur4rn1k';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
+<!--End of Tawk.to Script-->
+
+
+
 </body>
 </html>
