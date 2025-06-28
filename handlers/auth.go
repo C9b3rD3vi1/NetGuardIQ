@@ -12,7 +12,7 @@ import (
 func UserLoginHandler(c *fiber.Ctx) error {
 	// Render the login page
 	return c.Render("login", fiber.Map{
-		
+
 	})
 }
 

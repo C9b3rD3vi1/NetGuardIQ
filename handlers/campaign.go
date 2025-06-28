@@ -9,20 +9,17 @@ import (
 // Homepage Handler
 func HomepageHandler(c *fiber.Ctx) error {
 	return c.Render("home", fiber.Map{
-		"Title": "NetGuardIQ",
 	})
 }
 
 func PrinceHandler(c *fiber.Ctx) error {
 	return c.Render("pricing", fiber.Map{
-		"Title": "Prince Handler",
 	})
 }
 
 
 func ProductsHandler(c *fiber.Ctx) error {
 	return c.Render("products", fiber.Map{
-		"Title": "Products Handler",
 	})
 }
 
@@ -35,15 +32,13 @@ func Dashboard(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching campaigns")
 	}
 	return c.Render("dashboard", fiber.Map{
-		"Title":     "Dashboard",
-		"Campaigns": campaigns,
+		//"Campaigns": campaigns,
 	})
 }
 
 // Create New Campaign Form
 func NewCampaignForm(c *fiber.Ctx) error {
-	return c.Render("base", fiber.Map{
-		"Title": "New Campaign",
+	return c.Render("create_campaign", fiber.Map{
 	})
 }
 

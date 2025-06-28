@@ -25,6 +25,7 @@ func main() {
 
 	app := fiber.New(fiber.Config{
 		Views: engine,
+		ViewsLayout: "base",
 	})
 
 	// set database connection
