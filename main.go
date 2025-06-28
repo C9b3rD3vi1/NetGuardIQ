@@ -19,14 +19,15 @@ func main() {
 
 	// set template engine
 	engine := html.New("./templates", ".html")
-	engine.Reload(true) // Enable template reloading in development mode
-
-
+	
 
 	app := fiber.New(fiber.Config{
 		Views: engine,
 		ViewsLayout: "base",
 	})
+
+	engine.Reload(true) // Enable template reloading in development mode
+
 
 	// set database connection
 	database.ConnectDB()

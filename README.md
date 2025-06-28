@@ -3,3 +3,5 @@ NetGuardIQ is a cloud-based Phishing Simulation and Security Awareness Training 
 
 
 ![Simulation](./public/images/Simulation01.png)
+
+![NetGuardIQ](./public/images/netguardiq.png)
