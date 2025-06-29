@@ -1,8 +1,6 @@
 <!-- File: templates/home.html -->
 
-{{ define "homepage" }}
-
-{{block "title" .}}NetGuardIQ - Phishing Simulation Platform{{end}}
+{{ block "title" . }}NetGuardIQ – Phishing Simulation Platform{{ end }}
 
  {{ block "content" . }}
 
@@ -245,5 +243,4 @@
 {{ end }}
 <!-- End of content -->
 
-{{ end }}
-
+{{ template "templates/base.html" . }}

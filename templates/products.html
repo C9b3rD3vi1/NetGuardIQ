@@ -1,23 +1,22 @@
 
-{{ define "products" }}
 
 {{ block "title" . }}Products - NetGuardIQ{{ end }}
 
 <!-- Product List -->
-{{ block "content" }}
-<!-- File: templates/products.html -->
+{{ block "content" . }}
+<!-- File: templates/products.html 
 <!DOCTYPE html>
 <html lang="en" data-theme="corporate">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products - NetGuardIQ</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
-  <!-- TypeIt Library -->
-<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
+   TypeIt Library -->
+
+   <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
   <style>
     body {
       background-color: #0f172a;
@@ -105,8 +104,7 @@
       z-index: 0;
     }
   </style>
-</head>
-<body class="text-slate-100 scroll-smooth">
+
 
 <!-- Hero Section with Matrix -->
 <section class="relative py-24 text-center overflow-hidden">
@@ -363,7 +361,5 @@
 
 </body>
 </html>
-
-{{ end }}
 
 {{ end }}

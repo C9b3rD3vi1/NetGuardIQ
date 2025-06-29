@@ -1,8 +1,4 @@
 
-
-{{ define "base" }}
-
-
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -55,7 +51,7 @@
       background-color: #00cc7a;
     }
   </style>
-  {{ block "head" . }}{{ end }}
+  <!--{{ block "head" . }}{{ end }}-->
 </head>
 
 
@@ -66,7 +62,7 @@
     <div class="navbar container mx-auto px-4 flex flex-wrap justify-between items-center">
       <!-- Brand -->
       <a href="/" class="text-xl font-bold brand-glitch">
-  <span class="text-accent">NetGuard</span><span class="text-red-500">IQ</span>
+  <span class="text-accent">NetGuard</span><span class="text-red-600">IQ</span>
 </a>
 
       <!-- Mobile toggle -->
@@ -88,6 +84,7 @@
           <li><button onclick="toggleTheme()" class="nav-link">🌙 Toggle Theme</button></li>
         </ul>
       </div>
+      
       <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-2">
         <a href="/" class="btn btn-ghost btn-sm">Home</a>
@@ -115,7 +112,7 @@
   <!-- Main Content -->
   <main class="flex-grow container mx-auto px-4 py-8">
     {{ block "content" . }}
-    <h1 class="text-3xl font-bold text-center mb-8 glitch" data-text="Welcome to NetGuardIQ">Welcome to NetGuard<pre class="inline text-red-500">IQ</pre></h1>
+  
     {{ end }}
   </main>
 
@@ -188,6 +185,3 @@ s0.parentNode.insertBefore(s1,s0);
   {{ block "scripts" . }}{{ end }}
 </body>
 </html>
-
-
-{{ end }}

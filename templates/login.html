@@ -1,16 +1,11 @@
 
 <!-- File: templates/login.html -->
-{{ define "login" }}
 
 
-{{ define "title" }}Login – NetGuardIQ{{ end }}
 
-{{ define "content" }}
-<div class="flex flex-col items-center justify-center min-h-screen bg-base-200 px-4">
-  <!-- Heading -->
-  <h1 class="text-3xl font-bold text-accent mb-6 animate__animated animate__fadeInDown">
-    Welcome Back! 👋
-  </h1>
+{{ block "title" .}}Login – NetGuardIQ{{ end }}
+
+{{ block "content" .}}
 
   <!-- Card -->
   <div class="card w-full max-w-sm bg-neutral text-neutral-content shadow-2xl border border-accent animate__animated animate__fadeInUp">
@@ -66,6 +61,4 @@
     </form>
   </div>
 </div>
-{{ end }}
-
 {{ end }}

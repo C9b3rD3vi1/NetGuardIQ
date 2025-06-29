@@ -20,14 +20,13 @@ func main() {
 
 	// set template engine
 	engine := html.New("./templates", ".html")
+	engine.Reload(true) // Disable template reloading in production mode
 	
 
 	app := fiber.New(fiber.Config{
 		Views: engine,
-		ViewsLayout: "base",
+		ViewsLayout: "/layouts/base",
 	})
-
-	engine.Reload(false) // Disable template reloading in production mode
 
 
 	// set database connection
@@ -35,7 +34,6 @@ func main() {
 
 	// set static files directory
 	app.Static("/public", "./public")
-
 
 	// set routes
 	app.Get("/", handlers.HomepageHandler)
