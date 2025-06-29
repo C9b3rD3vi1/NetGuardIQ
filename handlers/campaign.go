@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"github.com/c9b3rd3vi1/NetGuardIQ/database"
 	"github.com/c9b3rd3vi1/NetGuardIQ/models"
 	fiber "github.com/gofiber/fiber/v2"
@@ -8,6 +9,7 @@ import (
 
 // Homepage Handler
 func HomepageHandler(c *fiber.Ctx) error {
+	fmt.Println("Rendering: home")
 	return c.Render("home", fiber.Map{
 	})
 }

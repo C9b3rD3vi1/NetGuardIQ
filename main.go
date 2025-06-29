@@ -7,6 +7,7 @@ import (
 	"github.com/gofiber/template/html/v2"
 	"github.com/c9b3rd3vi1/NetGuardIQ/handlers"
 	"github.com/c9b3rd3vi1/NetGuardIQ/database"
+	//"github.com/CloudyKit/jet/v6"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/config"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/utils"
 	//"github.com/c9b3rd3vi1/NetGuardIQ/models"
@@ -35,6 +36,8 @@ func main() {
 	// set static files directory
 	app.Static("/public", "./public")
 
+
+	// set routes
 	app.Get("/", handlers.HomepageHandler)
 	app.Get("/dashboard", handlers.Dashboard)
 	app.Get("/campaigns/new", handlers.NewCampaignForm)

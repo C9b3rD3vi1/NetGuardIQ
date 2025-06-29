@@ -1,11 +1,29 @@
 
-{{ define "title" }}Sign Up – NetGuardIQ {{ end }}
 
-{{ define "signup_content" }}
+  {{ template "base" . }}
+
+
+{{ block "title" . }}Sign Up – NetGuardIQ {{ end }}
+
+{{ define "content" }}
+
 <div class="flex items-center justify-center min-h-screen bg-base-200 px-4">
   <div class="card w-full max-w-md bg-neutral text-neutral-content shadow-2xl animate__animated animate__fadeIn">
     <form class="card-body space-y-5">
       <h1 class="text-3xl font-bold text-center text-accent tracking-wider">Create Your Account</h1>
+
+      <!-- Name Field -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text text-base-content">Full Name</span>
+        </label>
+        <input 
+          type="text"
+          placeholder="Your Name"
+          class="input input-bordered input-primary w-full bg-base-100 text-base-content focus:outline-none focus:ring-2 focus:ring-primary"
+          required
+        />
+      </div>
 
       <!-- Email Field -->
       <div class="form-control">
@@ -28,6 +46,18 @@
         <input 
           type="password"
           placeholder="••••••••"
+          class="input input-bordered input-primary w-full bg-base-100 text-base-content focus:outline-none focus:ring-2 focus:ring-primary"
+          required
+        />
+      </div>
+      <!-- Confirm Password Field -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text text-base-content">Confirm Password</span>
+        </label>
+        <input 
+          type="password"
+          placeholder="••••••••••"
           class="input input-bordered input-primary w-full bg-base-100 text-base-content focus:outline-none focus:ring-2 focus:ring-primary"
           required
         />

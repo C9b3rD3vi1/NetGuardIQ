@@ -1,23 +1,12 @@
+<!-- File: templates/home.html -->
 
+{{ template "base" . }}
 
-{{define "title"}}NetGuardIQ - Phishing Simulation Platform{{end}}
-
+{{block "title" .}}NetGuardIQ - Phishing Simulation Platform{{end}}
 
 {{define "content"}}
 
 
-<!DOCTYPE html>
-<html lang="en" data-theme="corporate">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NetGuardIQ - Phishing Simulation Platform</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
 <style>
   body {
     /*background-color: #0a0f1a;*/
@@ -79,21 +68,8 @@
   }
 </style>
 
-</head>
-<body class="text-slate-100">
+<!-- <body class="text-slate-100"> -->
 
-  <!-- Navbar -->
-  <nav class="navbar shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-      <a class="text-xl font-bold text-primary">NetGuardIQ</a>
-      <div class="space-x-4 hidden md:flex">
-        <a class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Features</a>
-        <a class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Simulations</a>
-        <a class="btn btn-ghost hover:bg-primary hover:text-white transition-all">Pricing</a>
-      </div>
-      <a class="btn btn-primary transition-transform hover:scale-105">Get Started</a>
-    </div>
-  </nav>
 
   <!-- Hero -->
   <section class="py-20 bg-gradient-to-r from-blue-700 to-blue-500 text-white text-center animate__animated animate__fadeIn">
@@ -265,30 +241,6 @@
       <a href="/pricing" class="btn btn-hacker btn-lg">View Pricing</a>
     </div>
   </section>
-
   <!-- Footer -->
-  <footer class="py-12">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-      <p class="opacity-60">&copy; 2025 NetGuardIQ. All rights reserved.</p>
-
-      <!-- Social Media Links -->
-      <div class="space-x-4 mt-4 md:mt-0">
-        <a class="link link-hover"><i class="fab fa-facebook"></i></a>
-        <a class="link link-hover"><i class="fab fa-github"></i></a>
-        <a class="link link-hover"><i class="fab fa-twitter"></i></a>
-        <a class="link link-hover"><i class="fab fa-linkedin"></i></a>
-      </div>
-    
-      <!-- Links -->
-      <div class="space-x-4 mt-4 md:mt-0">
-        <a class="link link-hover">Privacy Policy</a>
-        <a class="link link-hover">Terms of Service</a>
-        <a class="link link-hover">Contact</a>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
-
 {{end}}
-<!-- End of content -->
+<!-- End of content --
