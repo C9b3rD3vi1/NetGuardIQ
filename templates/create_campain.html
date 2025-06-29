@@ -1,11 +1,8 @@
 
-{{ define "createcampaign" }}
-  {{ template "base" . }}
-{{ end }}
 
-{{ define "title" }}NetGuardIQ - Create Campaign{{ end }}
+{{ block "title" . }}NetGuardIQ - Create Campaign{{ end }}
 
-{{ define "createcontent" }}
+ {{ block "content" . }}
 
 <div class="max-w-lg mx-auto card bg-base-100 shadow-lg border border-base-300">
   <form method="POST" class="card-body space-y-4">

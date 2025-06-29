@@ -1,8 +1,9 @@
 
+{{ define "pricing" }}
 
-{{define "title"}}Pricing – NetGuardIQ{{end}}
+{{block "title" .}}Pricing – NetGuardIQ{{end}}
 
-{{ define "pricingcontent" }}
+ {{ block "content" . }}
 
 <!DOCTYPE html>
 <html lang="en" data-theme="corporate">
@@ -199,5 +200,7 @@
   </script>
 </body>
 </html>
+
+{{ end }}
 
 {{ end }}

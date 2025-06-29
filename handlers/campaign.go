@@ -58,3 +58,5 @@ func CreateCampaign(c *fiber.Ctx) error {
 	}
 	return c.Redirect("/campaigns/new")
 }
+
+// Fake Login Handler

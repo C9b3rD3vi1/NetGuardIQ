@@ -1,8 +1,10 @@
 
-{{ define "title" }}Products - NetGuardIQ{{ end }}
+{{ define "products" }}
+
+{{ block "title" . }}Products - NetGuardIQ{{ end }}
 
 <!-- Product List -->
-{{ define "productcontent" }}
+{{ block "content" }}
 <!-- File: templates/products.html -->
 <!DOCTYPE html>
 <html lang="en" data-theme="corporate">
@@ -361,5 +363,7 @@
 
 </body>
 </html>
+
+{{ end }}
 
 {{ end }}

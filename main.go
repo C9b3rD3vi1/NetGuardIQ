@@ -27,7 +27,7 @@ func main() {
 		ViewsLayout: "base",
 	})
 
-	engine.Reload(true) // Enable template reloading in development mode
+	engine.Reload(false) // Disable template reloading in production mode
 
 
 	// set database connection
